@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/style.css">
+    <title>Document</title>
+    <style>
+        .maincontainer{
+            width: 900px;
+            border: 2px solid green;
+            padding-bottom: 10px;
+        }
+
+        .headers{
+            display: flex;
+            gap: 10px;
+            padding:0 20px;
+            border-bottom: 2px solid green;
+        }
+
+        .logos,.choice{
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .image-logo{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100px;
+            height: 100px;
+            border: 2px solid green;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+
+        .image-logo img{
+            width: inherit;
+            height: inherit;
+        }
+
+        .chart{
+            display: flex;
+            flex: 1;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .chart .dc{
+            padding: 20px;
+            background: lightgray;
+            border-radius: 10px;
+        }
+
+        .formno{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex: 1;
+        }
+
+        .formno .formno-con{
+            border: 2px solid red;
+            border-radius: 10px;
+            padding: 5px;
+            height: 50px;
+            display: flex;
+            align-items: end;
+            overflow: hidden;
+        }
+
+        .formno-con input{
+            height: 50px;
+            width: 50px;
+        }
+
+        .text-title{
+            margin-top: 10px;
+            color: white;
+            padding-left: 20px;
+            background: green;
+        }
+
+        .patient-form,.dental-history,.medical-history,.signature-con{
+            padding: 0 20px;
+        }
+
+        .grid{
+            display: grid;
+            grid-column-gap: 10px;
+            margin-top: 10px;
+        }
+
+        .lastcol, .choices{
+            grid-template-columns: repeat(4,1fr);
+            grid-template-areas: "nn nn email email"
+                                "hn offn faxn mobn";
+        }
+
+        .fullname{
+            grid-template-columns: repeat(3, 27%) 1fr;
+        }
+
+        input{
+            border-bottom: 2px solid;
+            width: 100%;
+        }
+
+        label{
+            font-size: 10px;
+        }
+
+        .otherinfo{
+            grid-template-columns: 3fr 1fr 1fr;
+        }
+
+        .addnat, .deneff, .guardian-info,.lastdoc{
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .addnat label{
+            display: block;
+        }
+
+        .addnat select{
+            border-bottom: 2px solid;
+            width: 100%;
+        }
+
+        .minors{
+            display: flex;
+            width: 100%;
+            margin-top: 10px;
+            background: lightgray;
+            padding: 10px 20px;
+        }
+
+        .minors input, .choice input{
+            width: auto;
+            margin-left: 10px;
+        }
+
+        .questions{
+            margin-top: 20px;
+        }
+
+        .subques,.ans{
+            display: flex;
+        }
+
+        .ans input{width: auto;}
+
+        .subques input{
+            flex: 1;
+        }
+
+        .signature-con{
+            height: 300px;
+            position: relative;
+        }
+        .signatureBox{
+            position: absolute;
+            border: 2px dotted red;
+            display: flex;
+            flex-direction: column;
+            right: 10px;
+            bottom: 10px;
+        }
+
+        .buttons button{
+            padding: 15px 5px;
+            border: 2px solid green;
+            border-radius: 10px;
+            font-size: large;
+        }
+
+
+
+    </style>
+</head>
+<body>
+    <div class="maincontainer">
+        <div class="headers">
+            <div class="logos">
+                <div class="image-logo">
+                    <img src="assets/logo.png" alt="Gonzaga">
+                </div>
+                <h1>
+                    GONZAGA DENTAL <br> CLINIC
+                </h1>
+            </div>
+
+            <div class="chart">
+                <div class="dc">
+                    <h3>Dental Chart</h3>
+                </div>
+                <div class="formno">
+                    <div class="formno-con">
+                        <h6>Form no.</h6>
+                        <input type="number">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="patient-info">
+            <div class="text-title">
+                <h2>PATIENT INFORMATION RECORD</h2>
+            </div>
+
+            <form action="" class="patient-form">
+                <div class="grid fullname">
+                    <div class="firstname">
+                        <label for="firstname">Firstname</label>
+                        <input id="firstname" type="text" >
+                    </div>
+                    <div class="lastname">
+                        <label for="lastname">Lastname</label>
+                        <input id="lastname" type="text">
+                    </div>
+                    <div class="middlename">
+                        <label for="middlename">middlename</label>
+                        <input id="middlename" type="text">
+                    </div>
+                    <div class="extension-name">
+                        <label for="extension-name">extension-name</label>
+                        <input id="extension-name" type="text" style="width: 100%;">
+                    </div>
+                </div>
+                <div class="grid otherinfo">
+                    <div class="birthday">
+                        <label for="birthday">Birthday</label>
+                        <input id="birthday" type="date" style="width: 100%;">
+                    </div>
+                    <div class="age">
+                        <label for="age">Age</label>
+                        <input id="age" type="number" style="width: 100%;">
+                    </div>
+                    <div class="religion">
+                        <label for="religion">Religion</label>
+                        <input id="religion" type="text" style="width: 100%;">
+                    </div>
+                </div>
+                <div class="grid addnat">
+                    <div class="address">
+                        <label for="address">Address</label>
+                        <input id="address" type="text" style="width: 100%;">
+                    </div>
+                    <div class="nationality">
+                        <label for="nationality">Nationality</label>
+                        <select name="" id="nationality">
+                            <option value="filipino">Filipino</option>
+                        </select>
+                    </div>
+
+                </div>
+
+                <div class="grid deneff">
+                    <div class="dental-insurance">
+                        <label for="dental-insurance">Dental insurance</label>
+                        <input id="dental-insurance" type="text" style="width: 100%;">
+                    </div>
+
+                    <div class="effective-date">
+                        <label for="effective-date">Effective date</label>
+                        <input id="effective-date" type="date" style="width: 100%;">
+                    </div>
+                </div>
+
+                <div class="grid lastcol">
+                    <div style="grid-area: nn;">
+                        <label for="nn" >Nickname</label>
+                        <input id="nn" type="text" style="width: 100%;">
+                    </div>
+                    <div style="grid-area: hn;">
+                        <label for="home-no">Home no.</label>
+                        <input id="home-no" type="text" style="width: 100%;">
+                    </div>
+                    <div style="grid-area: offn;">
+                        <label for="office-no">Office no.</label>
+                        <input id="office-no" type="text" style="width: 100%;">
+                    </div>
+                    <div style="grid-area: faxn;">
+                        <label for="fax">Fax no.</label>
+                        <input id="fax" type="text" style="width: 100%;">
+                    </div>
+                    <div style="grid-area: mobn;">
+                        <label for="mobile-no">Cel/Mobile no.</label>
+                        <input id="mobile-no" type="text" style="width: 100%;">
+                    </div>
+                    <div style="grid-area: email;">
+                        <label for="email">Email Address</label>
+                        <input id="email" type="email" style="width: 100%;">
+                    </div>
+                </div>
+
+                <div class="minors">
+                    <p><i>For minors.,</i></p>
+                </div>
+                <span class="guardian">
+                    <div class="grid guardian-info">
+                        <div class="guar-name">
+                            <label for="guardian-name">Guardian name</label>
+                            <input id="guardian-name" type="text">
+                        </div>
+
+                        <div class="guar-name">
+                            <label for="guardian-occu">Guardian Occupation</label>
+                            <input id="guardian-occu" type="text">
+                        </div>
+                    </div>
+
+                    <div class="gcon">
+                        <label for="reff-to">Whom may we thank for reffering you?</label>
+                        <input id="reff-to" type="text">
+                    </div>
+                    <div class="gcon">
+                        <label for="reason">What is the reason for dental consultation?</label>
+                        <input id="reason" type="text">
+                    </div>
+                </span>
+
+            </form>
+        </div>
+
+        <div class="dental-his">
+            <div class="text-title">
+                <h2>DENTAL HISTORY</h2>
+            </div>
+            <form action="" class="dental-history">
+                <div class="onegrid">
+                    <label for="prevden">Previous Dentest</label>
+                    <input id="prevden" type="text" >
+                </div>
+                <div class="onegrid">
+                    <label for="lastden">Last Dental Visit</label>
+                    <input id="lastden" type="text">
+                </div>
+            </form>
+        </div>
+
+        <div class="med-his">
+            <div class="text-title">
+                <h2>MEDICAL HISTORY</h2>
+            </div>
+
+            <form action="" class="medical-history">
+                <div class="grid lastdoc">
+                    <div class="field col-6">
+                        <label>Name of Physician: Dr.</label>
+                        <input type="text" id="physicianName">
+                    </div>
+                    <div class="field col-6">
+                        <label>Specialty, if applicable</label>
+                        <input type="text" id="physicianSpecialty">
+                    </div>
+                    <div class="field col-6">
+                        <label>Office Address</label>
+                        <input type="text" id="physicianAddress">
+                    </div>
+                    <div class="field col-6">
+                        <label>Office Number</label>
+                        <input type="tel" id="physicianNumber">
+                    </div>
+                </div>
+
+                <div class="questions">
+                    
+                    <div class="question">
+                        <span>1. Are you in good health?</span>
+                        <div class="ans">
+                            <pre>    yes </pre>
+                            <input type="radio" name="q1" value="yes">
+                            <pre>   no </pre>
+                            <input type="radio" name="q1" value="no">
+                        </div>
+                    
+                    </div>
+                    <div class="question">
+                        <span>2. Are you under medical treatment now?</span>
+                        <div class="ans">
+                            <pre>    yes </pre>
+                            <input type="radio" name="q1" value="yes">
+                            <pre>   no </pre>
+                            <input type="radio" name="q1" value="no">
+                        </div>
+                        <div class="subques">
+                            <pre>    If so, what is the condition being treated? </pre>
+                            <input type="text" id="q2condition" style="width: 100%; margin-top: 5px;">
+                        </div>
+                    </div>
+                    <div class="question">
+                        <span>3. Have you ever had an seriuos illness or surgical operation?</span>
+                        <div class="ans">
+                            <pre>    yes </pre>
+                            <input type="radio" name="q1" value="yes">
+                            <pre>   no </pre>
+                            <input type="radio" name="q1" value="no">
+                        </div>
+                        <div class="subques">
+                            <pre>    If so, what illness or operation? </pre>
+                            <input type="text" id="q2condition" style="width: 100%; margin-top: 5px;">
+                        </div>
+                    </div>
+                    <div class="question">
+                        <span>4. Have you ever been hospitalized?</span>
+                        <div class="ans">
+                            <pre>    yes </pre>
+                            <input type="radio" name="q1" value="yes">
+                            <pre>   no </pre>
+                            <input type="radio" name="q1" value="no">
+                        </div>
+                        <div class="subques">
+                            <pre>    If so, when and why? </pre>
+                            <input type="text" id="q2condition" style="width: 100%; margin-top: 5px;">
+                        </div>
+                    </div>
+                    <div class="question">
+                        <span>5. Are you taking any prescription/non-prescription medication?</span>
+                        <div class="ans">
+                            <pre>    yes </pre>
+                            <input type="radio" name="q1" value="yes">
+                            <pre>   no </pre>
+                            <input type="radio" name="q1" value="no">
+                        </div>
+                        <div class="subques">
+                            <pre>    If so,Please specify? </pre>
+                            <input type="text" id="q2condition" style="width: 100%; margin-top: 5px;">
+                        </div>
+                    </div>
+                    <div class="question">
+                        <span>6. Do you tobbaco products?</span>
+                        <div class="ans">
+                            <pre>    yes </pre>
+                            <input type="radio" name="q1" value="yes">
+                            <pre>   no </pre>
+                            <input type="radio" name="q1" value="no">
+                        </div>
+                    </div>
+                    <div class="question">
+                        <span>7. Do you use alcohol?</span>
+                        <div class="ans">
+                            <pre>    yes </pre>
+                            <input type="radio" name="q1" value="yes">
+                            <pre>   no </pre>
+                            <input type="radio" name="q1" value="no">
+                        </div>
+                    </div>
+                    <div class="question">
+                        <span>8. Are you allergic to the folllowing</span>
+                        <div class="ans">
+                            <pre>    yes </pre>
+                            <input type="radio" name="q1" value="yes">
+                            <pre>   no </pre>
+                            <input type="radio" name="q1" value="no">
+                        </div>
+                        <div class="grid choices">
+                            <div class="choice">
+                                <input type="checkbox">
+                                <span>Local Anesthetic (ex. Lidocaine)</span>
+                            </div>
+                            <div class="choice">
+                                <input type="checkbox">
+                                <span>Penicilin Antibiotics</span>
+                            </div>
+                            <div class="choice">
+                                <input type="checkbox">
+                                <span>Sulfa drugs</span>
+                            </div>
+                            <div class="choice">
+                                <input type="checkbox">
+                                <span>Aspirin</span>
+                            </div>
+                            <div class="choice">
+                                <input type="checkbox">
+                                <span>Latex</span>
+                            </div>
+                            <div class="choice">
+                                <span>other</span>
+                                <input type="text">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="question" style="display: flex; margin-top:10px;">
+                        <span>9. Bleeding Time </span>
+                        <input type="text" style="width: auto; flex:1;">
+                    </div>
+                    <div class="question" style="display: flex; margin-top:10px; flex-direction:column;">
+                        <span>10. for wome only: </span>
+                        <div class="question">
+                            <span>-10.1. Are you pregnant?</span>
+                            <div class="ans">
+                                <pre>    yes </pre>
+                                <input type="radio" name="q1" value="yes">
+                                <pre>   no </pre>
+                                <input type="radio" name="q1" value="no">
+                            </div>
+                        </div>
+                        
+                        <div class="question" style="display:block;">
+                            <span>-10.2. Are you nursing?</span>
+                            <div class="ans">
+                                <pre>    yes </pre>
+                                <input type="radio" name="q1" value="yes">
+                                <pre>   no </pre>
+                                <input type="radio" name="q1" value="no">
+                            </div>
+                        </div>
+                        <div class="question">
+                            <span>--10.3. Are you taking birth control pills?</span>
+                            <div class="ans">
+                                <pre>    yes </pre>
+                                <input type="radio" name="q1" value="yes">
+                                <pre>   no </pre>
+                                <input type="radio" name="q1" value="no">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="question" style="display: flex; margin-top:10px;">
+                        <span>11. Blood Type </span>
+                        <input type="text" style="width: auto; flex:1;">
+                    </div>
+                    <div class="question" style="display: flex; margin-top:10px;">
+                        <span>12. Blood Pressure </span>
+                        <input type="text" style="width: auto; flex:1;">
+                    </div>
+                    <div class="question">
+                        <span>13. Do you have the folllowing? Check which apply</span>
+                        <div class="ans">
+                            <pre>    yes </pre>
+                            <input type="radio" name="q1" value="yes">
+                            <pre>   no </pre>
+                            <input type="radio" name="q1" value="no">
+                        </div>
+                        <div class="grid choices">
+                            <div class="choice">
+                                <input type="checkbox" name="condition" value="highBloodPressure">
+                                <span>High Blood Pressure</span>
+                            </div>
+                            <div class="choice">
+                                <input type="checkbox" name="condition" value="heartDisease">
+                                <span>Heart Disease</span>
+                            </div>
+                            <div class="choice">
+                                <input type="checkbox" name="condition" value="lowBloodPressure">
+                                <span>Low Blood Pressure</span>
+                            </div>
+                            <div class="choice">
+                                <input type="checkbox" name="condition" value="heartMurmur">
+                                <span>Heart Murmur</span>
+                            </div>
+                            <div class="choice">
+                                <input type="checkbox" name="condition" value="epilepsy">
+                                <span>Epilepsy / Convulsions</span>
+                            </div>
+                            <div class="choice">
+                                <input type="checkbox" name="condition" value="hepatitis">
+                                <span>Hepatitis / Liver Disease</span>
+                            </div>
+                            <div class="choice">
+                                <input type="checkbox" name="condition" value="aids">
+                                <span>AIDS or HIV Infection</span>
+                            </div>
+                            <div class="choice">
+                                <input type="checkbox" name="condition" value="rheumatic">
+                                <span>Rheumatic Fever</span>
+                            </div>
+                            <div class="choice">
+                                <input type="checkbox" name="condition" value="std">
+                                <span>Sexually Transmitted disease</span>
+                            </div>
+                            <div class="choice">
+                                <input type="checkbox" name="condition" value="hayFever">
+                                <span>Hay Fever / Allergies</span>
+                            </div>
+                            <div class="choice">
+                                <input type="checkbox" name="condition" value="stomach">
+                                <span>Stomach Troubles Ulcers</span>
+                            </div>
+                            <div class="choice">
+                                <input type="checkbox" name="condition" value="respiratory">
+                                <span>Respiratory Problems</span>
+                            </div>
+                            <div class="choice">
+                                <input type="checkbox" name="condition" value="fainting">
+                                <span>Fainting Seizure</span>
+                            </div>
+                            <div class="choice">
+                                <input type="checkbox" name="condition" value="hepatitisJaundice">
+                                <span>Hepatitis / Jaundice</span>
+                            </div>
+                            <div class="choice">
+                                <input type="checkbox" name="condition" value="weightLoss">
+                                <span>Rapid Weight Loss</span>
+                            </div>
+                            <div class="choice">
+                                <input type="checkbox" name="condition" value="tuberculosis">
+                                <span>Tuberculosis</span>
+                            </div>
+                            <div class="choice">
+                                <input type="checkbox" name="condition" value="radiation">
+                                <span>Radiation Therapy</span>
+                            </div>
+                            <div class="choice">
+                                <input type="checkbox" name="condition" value="swollenAnkles">
+                                <span>Swollen ankles</span>
+                            </div>
+                            <div class="choice">
+                                <input type="checkbox" name="condition" value="joint">
+                                <span>Joint Replacement Implant</span>
+                            </div>
+                            <div class="choice">
+                                <input type="checkbox" name="condition" value="kidneyDisease">
+                                <span>Kidney disease</span>
+                            </div>
+                            <div class="choice">
+                                <input type="checkbox" name="condition" value="heartSurgery">
+                                <span>Heart Surgery</span>
+                            </div>
+                            <div class="choice">
+                                <input type="checkbox" name="condition" value="diabetes">
+                                <span>Diabetes</span>
+                            </div>
+                            <div class="choice">
+                                <input type="checkbox" name="condition" value="heartAttack">
+                                <span>Heart Attack</span>
+                            </div>
+                            <div class="choice">
+                                <input type="checkbox" name="condition" value="chestPain">
+                                <span>Chest pain</span>
+                            </div>
+                            <div class="choice">
+                                <input type="checkbox" name="condition" value="thyroid">
+                                <span>Thyroid Problem</span>
+                            </div>
+                            <div class="choice">
+                                <input type="checkbox" name="condition" value="stroke">
+                                <span>Stroke</span>
+                            </div>
+                            <div class="choice">
+                                <input type="checkbox" name="condition" value="cancer">
+                                <span>Cancer / Tumors</span>
+                            </div>
+                            <div class="choice">
+                                <input type="checkbox" name="condition" value="anemia">
+                                <span>Anemia</span>
+                            </div>
+                            <div class="choice">
+                                <input type="checkbox" name="condition" value="angina">
+                                <span>Angina</span>
+                            </div>
+                            <div class="choice">
+                                <input type="checkbox" name="condition" value="asthma">
+                                <span>Asthma</span>
+                            </div>
+                            <div class="choice">
+                                <input type="checkbox" name="condition" value="emphysema">
+                                <span>Emphysema</span>
+                            </div>
+                            <div class="choice">
+                                <input type="checkbox" name="condition" value="bleeding">
+                                <span>Bleeding Problems</span>
+                            </div>
+                            <div class="choice">
+                                <input type="checkbox" name="condition" value="bloodDiseases">
+                                <span>Blood Diseases</span>
+                            </div>
+                            <div class="choice">
+                                <input type="checkbox" name="condition" value="headInjuries">
+                                <span>Head Injuries</span>
+                            </div>
+                            <div class="choice">
+                                <input type="checkbox" name="condition" value="arthritis">
+                                <span>Arthritis / Rheumatism</span>
+                            </div>
+                            <div class="choice">
+                                <input type="checkbox" name="condition" value="other">
+                                <span>Other: <input type="text" id="conditionOther" style="width: 150px; margin-left: 5px;"></span>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="patientsig">
+            <div class="text-title">
+                <h2>-</h2>
+            </div>
+
+            <div class="signature-con">
+                <div class="signatureBox">
+                    
+                    <canvas width="300px" height="170px" style="border: 2px solid;" id="signaturePad">
+
+                    </canvas>
+                    <div class="grid buttons" style="grid-template-columns: 1fr 1fr;">
+                        <button onclick="clearSignature()">Clear</button>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</body>
+</html>

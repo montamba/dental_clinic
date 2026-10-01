@@ -1,0 +1,95 @@
+{
+    "patientInfo":
+    {
+        "name": 
+        {
+            "last_name": "string",
+            "first_name": "string",
+            "middle_name": "string",
+            "suffix": "string"
+        },
+        "birth_date": 
+        {
+            "year": "date",
+            "month": "date",
+            "day": "date"
+        },
+        "gender": "enum",
+        "religion": "string",
+        "nationality": "string",
+        "address": "string",
+        "contact": 
+        {
+            "email": "string",
+            "mobile_number": "number or string",
+            "home_number": "number or string",
+            "office_number": "number or string",
+            "fax_number": "number or string"
+        },
+        "is_minor": "bool",
+        "guardian": 
+        {
+            "last_name":"string",
+            "first_name": "string",
+            "middle_name": "string",
+            "relationship": "string"
+        } 
+    },
+    "dental_history": 
+    {
+        "previous_dentist": "string",
+        "last_dental_visit": "string"
+    },
+    "medical_history": 
+    {
+        "physician":
+        {
+            "name": "sample",
+            "specialty": "sample",
+            "office_address": "sample",
+            "office_number": "sample"
+        }
+    },
+    "health_assessment": 
+    {
+        "good_health": "sample",
+        "under_medical_treatment": "sample",
+        "treatment_condition": "sample",
+        "serious_illness_or_surgery": "sample",
+        "illness_or_operation": "sample",
+        "previously_hospitalized": "sample",
+        "hospitalization_details": "sample",
+        "medication_use": "sample",
+        "medications": "sample",
+        "tobacco_use": "sample",
+        "alcohol_use": "sample",
+        "bleeding_time": "sample",
+        "women_health": 
+        {
+            "pregnant": "sample",
+            "nursing": "sample",
+            "birth_control_pills": "sample"
+        },
+        "blood_type": "sample",
+        "blood_pressure": "sample"
+    },
+    "allergies": 
+    {
+        "has_allergies": "sample",
+        "selected_allergies": "sample",
+        "other_allergy": "sample"
+    },
+    "medical_conditions": 
+    {
+        "has_medical_conditions": "sample",
+        "selected_conditions": "sample",
+        "other_condition": "sample"
+    },
+    "electronic_signature": 
+    {
+        "consent_confirmed": "sample",
+        "signed": "sample",
+        "signed_at":"sample"
+    }
+}
+        

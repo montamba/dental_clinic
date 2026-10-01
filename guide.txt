@@ -1,0 +1,33 @@
+user permission
+
+submission
+sub.read
+sub.edit
+sub.approve
+
+
+patient form managers
+form.edit
+form.delete
+form.read
+
+
+usermanager
+um.read
+um.edit
+um.add
+um.delete
+
+
+user
+user.generateForm
+
+
+    
+
+
+    
+
+
+
+

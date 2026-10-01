@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>a</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body{
+            display: grid;
+            grid-template-columns: min(350px, 90%) 1fr;
+            min-height: 100dvh;
+        }
+
+        aside{
+            border-right: 3px solid;
+        }
+
+        aside .logo{
+            height: 300px;
+            border: 1px solid green;
+            overflow: hidden;
+            display: grid;
+            grid-template-rows: 80% 20%;
+        }
+    </style>
+</head>
+
+<body>
+    <aside>
+        <div class="logo">
+            <div class="image-logo-holder">
+                <img src="https://img.magnific.com/free-vector/abstract-logo-flame-shape_1043-44.jpg?semt=ais_hybrid&w=740&q=80"
+                    alt="enptylogo">
+
+            </div>
+            <div class="company-name">
+                <h2>companyname</h2>
+            </div>
+        </div>
+    </aside>
+</body>
+
+</html>
